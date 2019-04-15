@@ -1,0 +1,19 @@
+<%= form_for(@user, url: yield(:url)) do |f|%>
+<%= render "shared/error_messages", object: @user%>
+
+<%= f.label :name, class: 'form_control'%>
+<%= f.text_field :name, class: 'form-control'%>
+
+<%= f.label :email%>
+<%=f.email_field :email, class: 'form-control'%>
+
+<%= f.label :password%>
+<%= f.password_field :password, class: "form-control"%>
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmatino, class: "form-control" %>
+
+<%= f.label :image, "イメージ画像"%>
+<%= f.file_field :image, class: "form-control"%>
+<%= f.submit yield(:button_text), class: "btn btn-primary"%>
+<% end%>

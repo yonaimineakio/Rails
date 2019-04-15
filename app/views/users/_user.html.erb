@@ -1,0 +1,10 @@
+ <li>
+   <%= link_to user.name, user_path(user) %>
+   <image src="<%= user.image%>">
+   <% if current_user.admin? && !current_user?(user)%>
+   <% if current_user.admin? && !current_user?(user) %>
+   | <%= link_to "delete", user_path(user), method: :delete,
+                                 data: { confirm: "You sure?" } %>
+ <% end %>
+   <% end %>
+ </li>
