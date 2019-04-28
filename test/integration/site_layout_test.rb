@@ -4,7 +4,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-	    
+
 
   def setup
    @user=users(:michael)
@@ -38,8 +38,9 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
 	  assert_select "a[href=?]", logout_path
 
-          assert_select "a[href=?]", user_path(@user)
+    assert_select "a[href=?]", user_path(@user)
 
 
   end
+
 end

@@ -1,10 +1,10 @@
  <li>
    <%= link_to user.name, user_path(user) %>
-   <image src="<%= user.image%>">
-   <% if current_user.admin? && !current_user?(user)%>
+   <div><%= link_to image_tag("#{user.image}", {:size =>'100x80', :alt => ""}), user%></div>
    <% if current_user.admin? && !current_user?(user) %>
-   | <%= link_to "delete", user_path(user), method: :delete,
+
+| <%= link_to "delete", user, method: :delete,
                                  data: { confirm: "You sure?" } %>
  <% end %>
-   <% end %>
+
  </li>

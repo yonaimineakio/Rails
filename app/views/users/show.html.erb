@@ -2,12 +2,19 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <img src = "<%= @user.image%>">
-      
       <h1>
-        <%= @user.name %>
+        <%= @user.name%>
       </h1>
-      <p><%= @user.email%></p>
+        <h1><%= link_to image_tag("#{@user.image}", {:size =>'380x480', :alt => ""}), @user%></h1>
     </section>
+    <div class="col-md-8">
+   <% if @user.microposts.any? %>
+     <h3>Microposts (<%= @user.microposts.count %>)</h3>
+     <ol class="microposts">
+       <%= render @microposts %>
+     </ol>
+     <%= will_paginate @microposts %>
+   <% end %>
+ </div>
   </aside>
 </div>
