@@ -37,6 +37,9 @@ test "micropost interface" do
   log_in_as(@user)
   get root_path
   assert_match "#{@user.microposts.count} microposts", response.body
+  #14.2.2の演習
+  assert_match @user.following.count.to_s, response.body
+  assert_match @user.followers.count.to_s, response.body
   # まだマイクロポストを投稿していないユーザー
   other_user = users(:malory)
   log_in_as(other_user)

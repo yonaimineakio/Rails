@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #logged_in_userはこのファイルに書いたメソッド名
- before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
+ before_action :logged_in_user, only: [:edit, :update, :index, :destroy, :following, :followers]
 
  before_action :correct_user, only: [:edit, :update]
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
      flash[:info] = "Please check your email to activate your account."
      redirect_to root_url
     else
-      render "new"
+     render "new"
     end
   end
 
@@ -56,6 +56,21 @@ class UsersController < ApplicationController
     flash[:success]="User deleted"
     redirect_to users_url
   end
+
+
+ def following
+   @title="Following"
+   @user=User.find(params[:id])
+   @users=@user.following.paginate(page: params[:page])
+   render 'show_follow'
+ end
+
+ def followers
+  @title="Followers"
+  @user = User.find(params[:id])
+  @users = @user.followers.paginate(page: params[:page])
+  render 'show_follow'
+ end
 
   private
     def user_params
