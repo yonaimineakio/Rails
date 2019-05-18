@@ -27,5 +27,14 @@
     <%= f.text_area :body, placeholder: "Send comment..." %>
 </div>
 <%= f.submit "Comment", class: "btn btn-primary"%>
-<span><%= f.file_field :image %></span>
-<% end%>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <p>画像</p>
+    <%= f.file_field :image%>
+    <p>動画</p>
+    <%= f.file_field :video%>
+  </div>
+</div><% end%>

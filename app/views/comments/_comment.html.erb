@@ -3,6 +3,7 @@
   <span class="user"><%= link_to comment.user.name, comment.user %></span>
   <span class="body"><%= comment.body %></span>
   <%= image_tag comment.image.url if comment.image?%>
+  <%= video_tag comment.video.url, {:loop => true, :controls => true, :size => '300x300' }if comment.video?%>
   <span class="timestamp">
     Posted <%= time_ago_in_words(comment.created_at) %> ago.
     <% if current_user?(comment.user)%>

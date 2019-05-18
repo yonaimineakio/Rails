@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount ActionCable.server => '/cable'
+
   get 'comments/index'
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'

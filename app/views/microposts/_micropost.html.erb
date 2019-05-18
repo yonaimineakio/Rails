@@ -3,6 +3,7 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content"><%= micropost.content %></span>
    <%= image_tag micropost.image.url if micropost.image? %>
+   <%= video_tag micropost.video.url, {:loop => true, :controls => true, :size => '300x300' }if micropost.video?%>
   <% if micropost.comments.count != 0 && comments =  micropost.comments.count   %>
    Comments (<%= comments %>)
   <% end%>
